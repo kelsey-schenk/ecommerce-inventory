@@ -40,10 +40,20 @@ router.get('/:id', (req, res) => {
       include: [
         {
           model: Category,
-          attributes: []
+          attributes: ['category_name']
+        },
+        {
+          model: Tag,
+          attributes: ['tag_name']
         }
       ]
-  })
+    }
+  )
+  .then(productData => res.json(productData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err)
+    });
 });
 
 // create new product
@@ -122,6 +132,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
+  Product.destroy
 });
 
 module.exports = router;
