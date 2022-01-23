@@ -9,7 +9,7 @@ ProductTag.init(
     // define Product tag schema
     id: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     }
   },
   {
